@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="movil.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/b971a45ca4.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="ancho">
+        <h1>Tarea 5. Acordeón</h1>
+    </header><br>
+    <section class="ancho">
+
+        <div class="contenedor">
+            <h2>Frequenly Asked Questions</h2>
+
+            <div class="cont_preguntas">
+                <div class="icono">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <h3 class="color_letra">Do you provide any scripts with your templates?</h3>
+            </div>
+            <article class="contenido texto">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam doloribus laudantium commodi pariatur odio. Expedita necessitatibus aut obcaecati veniam iusto corporis magni deserunt, cum alias, enim dolorem nobis at est?</p>
+            </article>
+
+            <div class="cont_preguntas">
+                <div class="icono">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                
+                <h3 class="color_letra">What do i receive when i order a template?</h3>
+            </div>
+            <article class="contenido texto">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam doloribus laudantium commodi pariatur odio. Expedita necessitatibus aut obcaecati veniam iusto corporis magni deserunt, cum alias, enim dolorem nobis at est?</p>
+            </article>
+
+            <div class="cont_preguntas">
+                <div class="icono">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <h3 class="color_letra">In what formats are you templates available?</h3>
+            </div>
+            <article class="contenido texto">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam doloribus laudantium commodi pariatur odio. Expedita necessitatibus aut obcaecati veniam iusto corporis magni deserunt, cum alias, enim dolorem nobis at est?</p>
+            </article>
+
+            <div class="cont_preguntas">
+                <div class="icono">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <h3 class="color_letra">What am i allowed to do with the templates?</h3>
+            </div>
+            <article class="contenido texto">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam doloribus laudantium commodi pariatur odio. Expedita necessitatibus aut obcaecati veniam iusto corporis magni deserunt, cum alias, enim dolorem nobis at est?</p>
+            </article>
+
+        </div>
+    </section>
+
+    
+    <script>
+        $(".cont_preguntas").click(function () {
+            var t = $(this);
+            var tp = t.next();
+
+            // Cierra todos los elementos, restablece el color y el ícono de todos los demás
+            $(".contenido").not(tp).slideUp();
+            $(".cont_preguntas h3").not(t.find("h3")).removeClass("active-color");
+            $(".cont_preguntas i").not(t.find("i")).removeClass("fa-minus").addClass("fa-plus");
+
+            // Verifica si el contenido actual está visible
+            if (tp.is(":visible")) {
+                // Si está visible, cierra y restablece el color y el ícono
+                tp.slideUp();
+                t.find("h3").removeClass("active-color");
+                t.find("i").removeClass("fa-minus").addClass("fa-plus");
+            } else {
+                // Si no está visible, abre y aplica las clases activas
+                tp.slideDown();
+                t.find("h3").addClass("active-color");
+                t.find("i").removeClass("fa-plus").addClass("fa-minus");
+            }
+        });
+
+    </script>
+
+
+</body>
+</html>
